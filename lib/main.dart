@@ -100,7 +100,7 @@ class _MyAppState extends State<MyApp> {
             EmailPasswordChangeScreen.id: (context) =>
                 const EmailPasswordChangeScreen(),
             NoInternetScreen.id: (context) => const NoInternetScreen(),
-            LocationScreen2.id: (context) => const LocationScreen2(),
+//          LocationScreen2.id: (context) => const LocationScreen2(),
             OnBoardingScreen.id: (context) => OnBoardingScreen(
                   user: userType,
                 ),

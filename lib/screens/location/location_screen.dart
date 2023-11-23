@@ -269,7 +269,7 @@ class _LocationScreenState extends ConsumerState<LocationScreen> {
                                   details.result != null &&
                                   mounted) {
                                 if (startFocusNode.hasFocus) {
-                            
+
                                   UserPreferences.setUserLat(
                                       details.result!.geometry!.location!.lat!);
                                   UserPreferences.setUserLon(

@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsmen/constants/const/app_state_constants.dart';
 import 'package:craftsmen/constants/const/color.dart';
+import 'package:craftsmen/constants/const/shared_preferences.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reusesable_appBar2.dart';
 import 'package:craftsmen/constants/reusesable_widgets/searchDisplayCards.dart';
@@ -71,9 +72,14 @@ class _DisplayAllSearchScreenState
 
                           GeoPoint distance = data.get('position')['geopoint'];
 
+                          var lat = UserPreferences.getUserLat();
+                          var lon = UserPreferences.getUserLon();
+                      
                           var distanceBetween = Geolocator.distanceBetween(
-                              userProv.userApiData.latitute!,
-                              userProv.userApiData.longitude!,
+                              // userProv.userApiData.latitute!,
+                              // userProv.userApiData.longitude!,
+                              lat!,
+                              lon!,
                               distance.latitude,
                               distance.longitude);
 
