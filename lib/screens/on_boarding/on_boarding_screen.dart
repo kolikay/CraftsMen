@@ -1,9 +1,9 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:craftsmen/constants/const/color.dart';
-import 'package:craftsmen/constants/const/shared_preferences.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/providers/skill_provider.dart';
 import 'package:craftsmen/providers/user_provider.dart';
-import 'package:craftsmen/screens/landing_page/no_internet.dart';
 import 'package:craftsmen/screens/landing_page/no_internet_page2.dart';
 import 'package:craftsmen/screens/on_boarding/craftsMen/crafts_home_screens/crafts_home_page.dart';
 import 'package:craftsmen/screens/on_boarding/user/notifications/views/notification_screen1.dart';

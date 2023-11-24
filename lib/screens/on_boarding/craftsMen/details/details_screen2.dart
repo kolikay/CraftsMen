@@ -1,7 +1,6 @@
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reusaable_textformfield.dart';
-import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -693,7 +692,7 @@ class _DetailsPage2State extends State<DetailsPage2> {
                 ),
               ),
             );
-            ;
+            
           });
         });
   }

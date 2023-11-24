@@ -1,8 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:async';
-import 'dart:ffi';
-
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/const/shared_preferences.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reusaable_textformfield.dart';
@@ -11,8 +9,6 @@ import 'package:craftsmen/constants/utils/progress_bar.dart';
 import 'package:craftsmen/constants/utils/snack_bar.dart';
 import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
 import 'package:craftsmen/screens/auth/views/verify_otp_screen.dart';
-import 'package:craftsmen/screens/location/location_screen2.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,17 +16,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_place/google_place.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants/const/app_state_constants.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LocationScreen extends ConsumerStatefulWidget {
   final String? email;
   final String? password;
-  String? userType;
+  final String? userType;
   final Map<String, dynamic>? body;
-  LocationScreen(
+  const LocationScreen(
       {Key? key, this.email, this.body, this.password, this.userType})
       : super(key: key);
   static const String id = 'location_screen';
@@ -45,8 +39,6 @@ class _LocationScreenState extends ConsumerState<LocationScreen> {
   String? apiKey;
   TextEditingController location = TextEditingController();
   List<AutocompletePrediction> predictions = [];
-  Timer? _debounce;
-  final _firestore = FirebaseFirestore.instance;
 
   DetailsResult? startSearch;
   late FocusNode startFocusNode;
@@ -72,9 +64,7 @@ class _LocationScreenState extends ConsumerState<LocationScreen> {
   }
 
   void autoCompleteSearch(String value) async {
-    print(value);
     var result = await googlePlace.autocomplete.get(value);
-    print(result);
 
     if (result != null && result.predictions != null && mounted) {
       setState(() {
@@ -127,11 +117,10 @@ class _LocationScreenState extends ConsumerState<LocationScreen> {
 
       AuthViewModel.instance.setLoading(false);
     }).catchError((e) {
-      print(e.toString());
+      e.toString();
       AuthViewModel.instance.setLoading(false);
     });
   }
-
 
   Future<void> _getAddressFromLatLng(Position position) async {
     await placemarkFromCoordinates(
@@ -151,7 +140,7 @@ class _LocationScreenState extends ConsumerState<LocationScreen> {
         ),
       );
     }).catchError((e) {
-      print(e.toString());
+      e.toString();
     });
   }
 
@@ -208,14 +197,14 @@ class _LocationScreenState extends ConsumerState<LocationScreen> {
                         labelText: 'Enter Location Address',
                         keyBoardType: TextInputType.text,
                         onChanged: (value) {
-                             if (value.isNotEmpty) {
-                              autoCompleteSearch(value);
-                            } else {
-                              setState(() {
-                                predictions = [];
-                                startSearch = null;
-                              });
-                            }
+                          if (value.isNotEmpty) {
+                            autoCompleteSearch(value);
+                          } else {
+                            setState(() {
+                              predictions = [];
+                              startSearch = null;
+                            });
+                          }
                           // if (_debounce?.isActive ?? false) _debounce!.cancel();
                           // _debounce =
                           //     Timer(const Duration(milliseconds: 0), () {
@@ -269,7 +258,6 @@ class _LocationScreenState extends ConsumerState<LocationScreen> {
                                   details.result != null &&
                                   mounted) {
                                 if (startFocusNode.hasFocus) {
-
                                   UserPreferences.setUserLat(
                                       details.result!.geometry!.location!.lat!);
                                   UserPreferences.setUserLon(

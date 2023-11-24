@@ -1,6 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
-import 'package:craftsmen/constants/const/app_state_constants.dart';
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
@@ -22,9 +20,6 @@ class LogOutScreen extends ConsumerStatefulWidget {
 class _LogOutScreenState extends ConsumerState<LogOutScreen> {
   @override
   Widget build(BuildContext context) {
-    final authViewModel = ref.watch(authViewModelProvider);
-    final userInfoProvider = ref.watch(userProvider);
-
     return Center(
       child: Dialog(
         child: SizedBox(

@@ -7,7 +7,6 @@ import 'package:craftsmen/constants/reusesable_widgets/reusaable_textformfield.d
 import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
 import 'package:craftsmen/constants/utils/progress_bar.dart';
 import 'package:craftsmen/constants/utils/snack_bar.dart';
-import 'package:craftsmen/screens/auth/views/sign_up_screen.dart';
 import 'package:craftsmen/screens/change_password/email_password_change_screen.dart';
 import 'package:craftsmen/screens/landing_page/landing_page_screen2.dart';
 import 'package:craftsmen/screens/on_boarding/on_boarding_screen.dart';

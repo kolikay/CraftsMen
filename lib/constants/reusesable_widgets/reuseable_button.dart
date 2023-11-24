@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
 
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
@@ -42,12 +42,11 @@ class ReuseableButton extends StatelessWidget {
       width: width,
       child: TextButton(
           style: TextButton.styleFrom(
-            shape: RoundedRectangleBorder(
+            foregroundColor: kWhite, shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.r),
             ),
             backgroundColor: backGroundColor,
             minimumSize: Size.fromHeight(70.h),
-            primary: kWhite,
           ),
           onPressed: isActive ? onPressed : null,
           child: NormalText(

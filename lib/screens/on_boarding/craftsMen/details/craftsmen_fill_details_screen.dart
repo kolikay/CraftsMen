@@ -1,5 +1,4 @@
 import 'package:craftsmen/constants/const/color.dart';
-import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
 import 'package:craftsmen/screens/on_boarding/craftsMen/details/detail_screen1.dart';
 import 'package:craftsmen/screens/on_boarding/craftsMen/details/details_screen2.dart';
 import 'package:craftsmen/screens/on_boarding/craftsMen/details/details_screen3.dart';
@@ -11,7 +10,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class CraftmenFillDetailsScreen extends ConsumerStatefulWidget {
   final String? user;
 
-  CraftmenFillDetailsScreen({
+ const CraftmenFillDetailsScreen({
     Key? key,
     required this.user,
   }) : super(key: key);

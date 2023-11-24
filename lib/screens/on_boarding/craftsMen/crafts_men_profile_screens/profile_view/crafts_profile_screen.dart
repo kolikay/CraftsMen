@@ -1,14 +1,13 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:typed_data';
 import 'package:craftsmen/constants/const/app_state_constants.dart';
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
-import 'package:craftsmen/constants/reusesable_widgets/profleFormFields.dart';
+import 'package:craftsmen/constants/reusesable_widgets/profle_form_fields.dart';
 import 'package:craftsmen/constants/utils/image_storage_methods.dart';
 import 'package:craftsmen/constants/utils/pick_image.dart';
 import 'package:craftsmen/constants/utils/progress_bar.dart';
-import 'package:craftsmen/models/skillProvider_models.dart';
+import 'package:craftsmen/models/skill_provider_models.dart';
 import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
 import 'package:craftsmen/screens/landing_page/no_internet.dart';
 import 'package:flutter/material.dart';

@@ -1,15 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:craftsmen/constants/const/app_state_constants.dart';
-import 'package:craftsmen/constants/const/shared_preferences.dart';
-import 'package:craftsmen/models/skillProvider_models.dart';
-import 'package:craftsmen/models/user_models.dart';
+import 'package:craftsmen/models/skill_provider_models.dart';
 import 'package:craftsmen/providers/user_provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:craftsmen/providers/user_provider.dart';
+
 
 class SearchSkillProvider extends ChangeNotifier {
   static final SearchSkillProvider _instance = SearchSkillProvider._();
@@ -20,7 +14,6 @@ class SearchSkillProvider extends ChangeNotifier {
     return _instance;
   }
 
-  final _auth = FirebaseAuth.instance;
   final _firestore = FirebaseFirestore.instance;
   final geo = Geoflutterfire();
   final userProv = UserProvider.instance;

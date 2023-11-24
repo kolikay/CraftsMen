@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NoInternetScreen2 extends StatelessWidget {
-  String? user;
-  NoInternetScreen2({Key? key, required this.user}) : super(key: key);
+ final String? user;
+ const NoInternetScreen2({Key? key, required this.user}) : super(key: key);
   static const id = 'noInternetPage2';
 
   @override

@@ -1,7 +1,6 @@
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reuseable_appbar.dart';
-import 'package:craftsmen/screens/auth/views/login_screen.dart';
-import 'package:craftsmen/screens/search/displayAllsearchScreen.dart';
+import 'package:craftsmen/screens/search/display_allsearch_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

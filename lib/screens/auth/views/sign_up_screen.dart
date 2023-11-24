@@ -12,8 +12,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
-  String? userType;
-  SignUpScreen({Key? key, this.userType}) : super(key: key);
+final  String? userType;
+ const SignUpScreen({Key? key, this.userType}) : super(key: key);
   static const String id = 'sign_up_screen';
 
   @override
@@ -41,7 +41,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
+
     super.initState();
    location = UserPreferences.getUserLocation() ?? '';
   }

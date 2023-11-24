@@ -1,17 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
-import 'package:craftsmen/constants/reusesable_widgets/profleFormFields.dart';
-import 'package:craftsmen/models/skillProvider_models.dart';
+import 'package:craftsmen/constants/reusesable_widgets/profle_form_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:units_converter/models/extension_converter.dart';
 import 'package:units_converter/units_converter.dart';
 
 class AboutTabView extends StatefulWidget {
-  DocumentSnapshot craftManDetails;
-  double distance;
-  AboutTabView(
+final  DocumentSnapshot craftManDetails;
+ final double distance;
+ const AboutTabView(
       {Key? key, required this.craftManDetails, required this.distance})
       : super(key: key);
 
@@ -147,9 +145,9 @@ List<Widget> tabs = const [
 
 class ReviwTabView extends StatefulWidget {
   final List<Widget> tab;
-  DocumentSnapshot craftManDetails;
+final  DocumentSnapshot craftManDetails;
 
-  ReviwTabView({Key? key, required this.tab, required this.craftManDetails})
+const  ReviwTabView({Key? key, required this.tab, required this.craftManDetails})
       : super(key: key);
 
   @override
@@ -238,10 +236,10 @@ class ReviewCards extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
+                 const   Padding(
+                      padding:  EdgeInsets.only(left: 10.0),
                       child: Row(
-                        children: const [
+                        children:  [
                           Icon(
                             Icons.star,
                             size: 14,
@@ -291,8 +289,8 @@ class ReviewCards extends StatelessWidget {
 }
 
 class WorkPhotoTabView extends StatelessWidget {
-  DocumentSnapshot craftManDetails;
-  WorkPhotoTabView({Key? key, required this.craftManDetails}) : super(key: key);
+final  DocumentSnapshot craftManDetails;
+ const WorkPhotoTabView({Key? key, required this.craftManDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

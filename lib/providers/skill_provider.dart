@@ -1,15 +1,11 @@
-import 'dart:io';
-import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsmen/constants/const/shared_preferences.dart';
-import 'package:craftsmen/models/skillProvider_models.dart';
-import 'package:craftsmen/models/user_models.dart';
-import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
+import 'package:craftsmen/models/skill_provider_models.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 class SkillProvider extends ChangeNotifier {
   static final SkillProvider _instance = SkillProvider._();
@@ -111,12 +107,10 @@ class SkillProvider extends ChangeNotifier {
       double? longitude = UserPreferences.getUserLon();
       String? address = UserPreferences.getUserLocation();
 
-      print(latitute);
-      print(address);
-
+ 
       GeoFirePoint myPosition =
           geo.point(latitude: latitute!, longitude: longitude!);
-      print(myPosition);
+      
 
       await _firestore
           .collection('Skill Providers')
@@ -129,7 +123,7 @@ class SkillProvider extends ChangeNotifier {
       });
       await getSKillLoggedinUserDetails();
     } catch (e) {
-      print(e.toString());
+      e.toString();
     }
   }
 

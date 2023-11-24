@@ -119,9 +119,9 @@ class DrawerIcons extends StatefulWidget {
   final IconData icon;
   final String imageName;
   final GestureTapCallback? onPressed;
-  Color? iconColor;
+ final Color? iconColor;
 
-  DrawerIcons(
+ const DrawerIcons(
       {Key? key,
       required this.icon,
       required this.imageName,

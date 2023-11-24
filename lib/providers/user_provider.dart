@@ -1,13 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsmen/constants/const/shared_preferences.dart';
 import 'package:craftsmen/models/user_models.dart';
-import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
-import 'package:simple_connection_checker/simple_connection_checker.dart';
+
+
 
 class UserProvider extends ChangeNotifier {
   static final UserProvider _instance = UserProvider._();
@@ -91,7 +89,7 @@ class UserProvider extends ChangeNotifier {
       });
       await getLoggedinUserDetails();
     } catch (e) {
-      print(e.toString());
+      e.toString();
     }
   }
 

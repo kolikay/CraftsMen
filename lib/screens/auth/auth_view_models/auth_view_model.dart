@@ -1,7 +1,7 @@
 // import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:craftsmen/models/skillProvider_models.dart';
+import 'package:craftsmen/models/skill_provider_models.dart';
 import 'package:craftsmen/models/user_models.dart';
 import 'package:craftsmen/providers/skill_provider.dart';
 import 'package:craftsmen/providers/user_provider.dart';
@@ -10,7 +10,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:craftsmen/constants/const/shared_preferences.dart';
 import 'package:auth_handler/auth_handler.dart';
-import 'package:craftsmen/constants/const/app_state_constants.dart';
 import 'package:simple_connection_checker/simple_connection_checker.dart';
 
 class AuthViewModel extends ChangeNotifier {
@@ -131,6 +130,7 @@ class AuthViewModel extends ChangeNotifier {
     } else {
       Navigator.pushNamed(context, NoInternetScreen.id);
     }
+    return null;
   }
 
 
@@ -155,6 +155,7 @@ class AuthViewModel extends ChangeNotifier {
     } else {
       Navigator.pushNamed(context, NoInternetScreen.id);
     }
+      return null;
   }
 
 // User Login

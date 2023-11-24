@@ -14,11 +14,11 @@ class ProfileFormField extends StatefulWidget {
   final Color? borderColor;
   final TextInputType? keyBoardType;
   final bool? enable;
-  Function(String)? onChanged;
+ final Function(String)? onChanged;
   final String? initialValue;
-  double? width;
+ final double? width;
 
-  ProfileFormField(
+  const ProfileFormField(
       {Key? key,
       this.borderColor = kMainColor,
       this.controller,

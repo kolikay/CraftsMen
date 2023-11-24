@@ -4,37 +4,19 @@ import 'package:craftsmen/constants/const/app_state_constants.dart';
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/constants/utils/progress_bar.dart';
-import 'package:craftsmen/models/user_models.dart';
 import 'package:craftsmen/providers/user_provider.dart';
 import 'package:craftsmen/screens/on_boarding/user/home_screens/categories_page.dart';
-import 'package:craftsmen/screens/search/displayAllsearchScreen.dart';
+import 'package:craftsmen/screens/search/display_allsearch_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'homepage_constant_widgets.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/const/shared_preferences.dart';
-import 'package:craftsmen/constants/reusesable_widgets/reusaable_textformfield.dart';
-import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
-import 'package:craftsmen/constants/utils/progress_bar.dart';
-import 'package:craftsmen/constants/utils/snack_bar.dart';
 import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
-import 'package:craftsmen/screens/auth/views/verify_otp_screen.dart';
-import 'package:craftsmen/screens/location/location_screen2.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:google_place/google_place.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:geoflutterfire/geoflutterfire.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class HomePageScreen extends ConsumerStatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -116,7 +98,7 @@ class _HomePageScreenState extends ConsumerState<HomePageScreen> {
 
       AuthViewModel.instance.setLoading(false);
     }).catchError((e) {
-      print(e.toString());
+      e.toString();
       AuthViewModel.instance.setLoading(false);
     });
   }
@@ -136,11 +118,11 @@ class _HomePageScreenState extends ConsumerState<HomePageScreen> {
         const SnackBar(
           backgroundColor: Colors.green,
           content:
-              Text('Current Location Retrived Successfully'),
+              Text('Current Location Retried Successfully'),
         ),
       );
     }).catchError((e) {
-      print(e.toString());
+    e.toString();
     });
   }
 
@@ -181,7 +163,7 @@ class _HomePageScreenState extends ConsumerState<HomePageScreen> {
                       ],
                     ),
                     NormalText(
-                      text: location.text ?? '',
+                      text: location.text,
                       size: 14.sp,
                       color: kBlackDull,
                     ),

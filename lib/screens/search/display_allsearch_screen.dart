@@ -6,7 +6,7 @@ import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/const/shared_preferences.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reusesable_appBar2.dart';
-import 'package:craftsmen/constants/reusesable_widgets/searchDisplayCards.dart';
+import 'package:craftsmen/constants/reusesable_widgets/search_display_cards.dart';
 import 'package:craftsmen/constants/utils/progress_bar.dart';
 import 'package:craftsmen/screens/search/singleSearchDisplayScreen.dart';
 import 'package:units_converter/units_converter.dart';
@@ -36,7 +36,6 @@ class _DisplayAllSearchScreenState
   Widget build(BuildContext context) {
     final authViewModel = ref.watch(authViewModelProvider);
     final searchResultProvider = ref.watch(searchProvider);
-    final userProv = ref.watch(userProvider);
     return SafeArea(
       child: Stack(children: [
         Scaffold(
@@ -112,7 +111,7 @@ class _DisplayAllSearchScreenState
                     color: Colors.red,
                   ));
                 } else if (snap.connectionState == ConnectionState.waiting) {
-                  print('waiting');
+                
                   return const Center(child: CircularProgressIndicator());
                 }
                 return Text(snap.connectionState.toString());

@@ -1,18 +1,19 @@
+// ignore_for_file: file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
-import 'package:craftsmen/models/skillProvider_models.dart';
-import 'package:craftsmen/screens/search/searchScreensContants.dart';
+import 'package:craftsmen/screens/search/search_screens_contants.dart';
 
-import 'package:craftsmen/screens/search/serviceDetailsScreen.dart';
+import 'package:craftsmen/screens/search/service_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SingleSearchScreen extends StatefulWidget {
-  DocumentSnapshot craftManDetails;
-  double distance;
-  SingleSearchScreen({Key? key, required this.craftManDetails, required this.distance})
+ final DocumentSnapshot craftManDetails;
+ final double distance;
+ const SingleSearchScreen({Key? key, required this.craftManDetails, required this.distance})
       : super(key: key);
 
   @override
@@ -124,7 +125,7 @@ class _SingleSearchScreenState extends State<SingleSearchScreen> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: ((context) => ServiceDetailsScreen()),
+                        builder: ((context) =>const ServiceDetailsScreen()),
                       ),
                     );
                   },

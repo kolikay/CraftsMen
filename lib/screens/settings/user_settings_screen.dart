@@ -178,7 +178,7 @@ class _UserSettingsScreenState extends ConsumerState<UserSettingsScreen> {
                 imageName: 'About App',
               ),
               const Divide(),
-              DrawerIcons(
+             const DrawerIcons(
                 icon: Icons.share,
                 iconColor: kMainColor,
                 imageName: 'Share',

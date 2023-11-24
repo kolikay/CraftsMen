@@ -2,7 +2,6 @@
 
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyTextField extends StatefulWidget {
@@ -17,11 +16,11 @@ class MyTextField extends StatefulWidget {
   final Color borderColor;
   final TextInputType? keyBoardType;
   final String? Function(String?)? validator;
-  void Function(String)? onChanged;
+ final void Function(String)? onChanged;
   final bool enable;
   final FocusNode? focus;
 
-  MyTextField({
+ const MyTextField({
     Key? key,
     this.borderColor = kMainColor,
     this.controller,

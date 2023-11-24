@@ -11,10 +11,7 @@ import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
 import 'package:craftsmen/constants/utils/progress_bar.dart';
 import 'package:craftsmen/constants/utils/snack_bar.dart';
 import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
-import 'package:craftsmen/screens/auth/views/login_screen.dart';
-import 'package:craftsmen/screens/auth/views/sign_up_screen.dart';
 import 'package:craftsmen/screens/landing_page/landing_page_screen.dart';
-import 'package:craftsmen/screens/landing_page/landing_page_screen2.dart';
 import 'package:craftsmen/screens/on_boarding/craftsMen/details/craftsmen_fill_details_screen.dart';
 import 'package:craftsmen/screens/on_boarding/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,12 +19,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
+
+
 class VerifyOtpScreen extends ConsumerStatefulWidget {
   final String email;
   final String password;
-  String? userType;
+ final String? userType;
   final Map<String, dynamic> body;
-  VerifyOtpScreen(
+const  VerifyOtpScreen(
       {Key? key,
       required this.email,
       required this.body,

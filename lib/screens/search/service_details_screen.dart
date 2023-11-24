@@ -12,7 +12,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ServiceDetailsScreen extends ConsumerStatefulWidget {
-  ServiceDetailsScreen({Key? key}) : super(key: key);
+  const ServiceDetailsScreen({Key? key}) : super(key: key);
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>

@@ -1,9 +1,7 @@
-import 'package:craftsmen/constants/const/cachedNetworkImage.dart';
+import 'package:craftsmen/constants/const/cached_network_mage.dart';
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
-
-import 'package:craftsmen/screens/auth/views/sign_up_screen.dart';
 import 'package:craftsmen/screens/landing_page/landing_page_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

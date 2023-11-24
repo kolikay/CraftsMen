@@ -4,7 +4,6 @@ import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/screens/on_boarding/craftsMen/crafts_men_profile_screens/profile_view/crafts_profile_screen.dart';
 import 'package:craftsmen/screens/on_boarding/user/home_screens/homepage_constant_widgets.dart';
 import 'package:craftsmen/screens/on_boarding/user/notifications/views/notification_screen1.dart';
-import 'package:craftsmen/screens/on_boarding/user/profile_screens/profile_view/profile_screen.dart';
 import 'package:craftsmen/screens/settings/about_us_screen.dart';
 import 'package:craftsmen/screens/settings/contact_screen.dart';
 import 'package:craftsmen/screens/settings/faqs_screen.dart';
@@ -178,7 +177,7 @@ class _CraftsMenSettingsScreenState extends ConsumerState<CraftsMenSettingsScree
                 imageName: 'About App',
               ),
               const Divide(),
-              DrawerIcons(
+             const DrawerIcons(
                 icon: Icons.share,
                 iconColor: kMainColor,
                 imageName: 'Share',

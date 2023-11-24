@@ -5,9 +5,6 @@ import 'package:craftsmen/constants/utils/snack_bar.dart';
 import 'package:craftsmen/providers/user_provider.dart';
 import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
 import 'package:craftsmen/screens/auth/views/login_screen.dart';
-import 'package:craftsmen/screens/change_password/enter_newpassword_screen.dart';
-
-import 'package:craftsmen/screens/change_password/passord_resetpin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:craftsmen/constants/const/color.dart';
@@ -92,7 +89,7 @@ class _EmailPasswordChangeScreenState extends State<EmailPasswordChangeScreen> {
               String? res = await UserProvider.instance
                   .updateUserPassword(_emailCont.text);
               AuthViewModel.instance.setLoading(false);
-              print(res);
+          
 
               if (res == 'Success') {
                 dialogBuilder(

@@ -1,4 +1,4 @@
-import 'package:craftsmen/constants/const/cachedNetworkImage.dart';
+import 'package:craftsmen/constants/const/cached_network_mage.dart';
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
@@ -80,7 +80,7 @@ class LandingPage2 extends StatelessWidget {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) =>
-                            SignUpScreen(userType: "Skill Providers"),
+                          const  SignUpScreen(userType: "Skill Providers"),
                       ),
                     );
                   },
@@ -93,7 +93,7 @@ class LandingPage2 extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen(userType: "Users"),
+                        builder: (context) =>const SignUpScreen(userType: "Users"),
                       ),
                     );
                   },

@@ -1,29 +1,19 @@
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/const/shared_preferences.dart';
-import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
-import 'package:craftsmen/providers/skill_provider.dart';
-import 'package:craftsmen/providers/user_provider.dart';
-import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
-
 import 'package:craftsmen/screens/auth/views/sign_up_screen.dart';
 import 'package:craftsmen/screens/change_password/email_password_change_screen.dart';
 import 'package:craftsmen/screens/landing_page/landing_page_screen.dart';
 import 'package:craftsmen/screens/landing_page/landing_page_screen2.dart';
 import 'package:craftsmen/screens/landing_page/no_internet.dart';
-import 'package:craftsmen/screens/location/location_screen.dart';
-import 'package:craftsmen/screens/location/location_screen2.dart';
 import 'package:craftsmen/screens/auth/views/login_screen.dart';
 import 'package:craftsmen/screens/on_boarding/on_boarding_screen.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:simple_connection_checker/simple_connection_checker.dart';
 
-import 'screens/on_boarding/craftsMen/details/craftsmen_fill_details_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -95,7 +85,7 @@ class _MyAppState extends State<MyApp> {
           routes: {
             LandingPage.id: (context) => const LandingPage(),
             LandingPage2.id: (context) => LandingPage2(),
-            SignUpScreen.id: (context) => SignUpScreen(),
+            SignUpScreen.id: (context) => const SignUpScreen(),
             LoginScreen.id: (context) => const LoginScreen(),
             EmailPasswordChangeScreen.id: (context) =>
                 const EmailPasswordChangeScreen(),

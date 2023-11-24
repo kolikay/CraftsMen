@@ -3,14 +3,11 @@
 import 'package:craftsmen/constants/const/app_state_constants.dart';
 import 'package:craftsmen/constants/const/color.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
-import 'package:craftsmen/constants/reusesable_widgets/reusaable_textformfield.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reusable_info_widget.dart';
 import 'package:craftsmen/constants/reusesable_widgets/reuseable_button.dart';
 import 'package:craftsmen/constants/utils/progress_bar.dart';
 import 'package:craftsmen/constants/utils/snack_bar.dart';
-import 'package:craftsmen/screens/auth/views/verify_otp_screen.dart';
 import 'package:craftsmen/screens/on_boarding/on_boarding_screen.dart';
-import 'package:craftsmen/screens/settings/user_settings_screen.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
