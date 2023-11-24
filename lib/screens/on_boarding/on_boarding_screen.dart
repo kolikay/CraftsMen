@@ -1,9 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:craftsmen/constants/const/color.dart';
+import 'package:craftsmen/constants/const/shared_preferences.dart';
 import 'package:craftsmen/constants/reusesable_widgets/normal_text.dart';
 import 'package:craftsmen/providers/skill_provider.dart';
 import 'package:craftsmen/providers/user_provider.dart';
+import 'package:craftsmen/screens/auth/auth_view_models/auth_view_model.dart';
 import 'package:craftsmen/screens/landing_page/no_internet_page2.dart';
 import 'package:craftsmen/screens/on_boarding/craftsMen/crafts_home_screens/crafts_home_page.dart';
 import 'package:craftsmen/screens/on_boarding/user/notifications/views/notification_screen1.dart';
@@ -12,6 +14,8 @@ import 'package:craftsmen/screens/settings/craftsmen_settings_screen.dart';
 import 'package:craftsmen/screens/settings/user_settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:simple_connection_checker/simple_connection_checker.dart';
 
 import 'user/bookings/bookings.dart';
@@ -28,10 +32,11 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  Position? _currentPosition;
   bool isConnect = true;
+  final TextEditingController _location = TextEditingController();
 
   int currentIndex = 0;
-
   final userScreens = [
     const HomePageScreen(),
     const Bookings(),
@@ -118,7 +123,83 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   void initState() {
     checkInternet();
+    _addData();
     super.initState();
+  }
+
+  _addData() async {
+    await _getCurrentPosition();
+  }
+
+  Future<bool> _handleLocationPermission() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location services are disabled. Please enable the services')));
+      return false;
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Location permissions are denied')));
+        return false;
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location permissions are permanently denied, we cannot request permissions.')));
+      return false;
+    }
+    return true;
+  }
+
+  Future<void> _getCurrentPosition() async {
+    AuthViewModel.instance.setLoading(true);
+    final hasPermission = await _handleLocationPermission();
+    if (!hasPermission) return;
+    await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
+        .then((Position position) {
+      setState(() => _currentPosition = position);
+
+      UserPreferences.setUserLat(_currentPosition!.latitude);
+      UserPreferences.setUserLon(_currentPosition!.longitude);
+
+      _getAddressFromLatLng(_currentPosition!);
+
+      AuthViewModel.instance.setLoading(false);
+    }).catchError((e) {
+      e.toString();
+      AuthViewModel.instance.setLoading(false);
+    });
+  }
+
+  Future<void> _getAddressFromLatLng(Position position) async {
+    await placemarkFromCoordinates(
+            _currentPosition!.latitude, _currentPosition!.longitude)
+        .then((List<Placemark> placemarks) {
+      Placemark place = placemarks[0];
+      setState(() {
+        _location.text =
+            '${place.street}, ${place.subLocality},${place.subAdministrativeArea}, ${place.postalCode}';
+        UserPreferences.setUserLocation(_location.text);
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.green,
+          content: Text('Current Location Retried Successfully'),
+        ),
+      );
+    }).catchError((e) {
+      e.toString();
+    });
   }
 
   Future checkInternet() async {
@@ -219,7 +300,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         fontWeight: FontWeight.w500,
                         color: kMainColor,
                       ),
-                    ),const SizedBox(width: 20,),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
                     TextButton(
                       onPressed: () =>
                           Navigator.of(context).pop(true), // <-- SEE HERE
