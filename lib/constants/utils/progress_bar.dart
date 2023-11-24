@@ -4,32 +4,35 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../reusesable_widgets/normal_text.dart';
 
-
 class ProgressDialog extends StatelessWidget {
- final  String message;
-   const ProgressDialog({Key? key, required this.message}) : super(key: key);
+  final String message;
+  const ProgressDialog({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: Colors.white,
       child: Container(
-        height: 70.h,
+        height: 80.h,
         margin: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.h),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16.0.r),
+          borderRadius: BorderRadius.circular(3.0.r),
         ),
         child: Row(
           children: [
-             SizedBox(width: 6.0.w),
+            SizedBox(width: 6.0.w),
             const CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(kMainColor),
             ),
             SizedBox(
               width: 26.0.w,
             ),
-            NormalText(text: message,color: kMainColor,size: 16.sp, )
+            NormalText(
+              text: message,
+              color: kMainColor,
+              size: 16.sp,
+            )
           ],
         ),
       ),
